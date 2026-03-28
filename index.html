@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой Одностраничный Сайт</title>
+    <style>
+        /* Базовые стили */
+        body { margin: 0; font-family: sans-serif; scroll-behavior: smooth; }
+        
+        /* Навигация */
+        nav { position: fixed; top: 0; width: 100%; background: #333; color: white; padding: 1rem; text-align: center; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+        
+        /* Секции */
+        section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; box-sizing: border-box; }
+        #hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center; }
+        #about { background: #f4f4f4; }
+        
+        /* Кнопки */
+        button { padding: 10px 20px; font-size: 1rem; cursor: pointer; border-radius: 5px; border: none; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <!-- Навигация -->
+    <nav>
+        <a href="#hero">Главная</a>
+        <a href="#about">О нас</a>
+        <a href="#contact">Контакты</a>
+    </nav>
+
+    <!-- Секция 1: Герой -->
+    <section id="hero">
+        <h1>Добро пожаловать на мой сайт</h1>
+        <p>Это пример одностраничного сайта.</p>
+        <button onclick="document.getElementById('about').scrollIntoView()">Узнать больше</button>
+    </section>
+
+    <!-- Секция 2: О нас -->
+    <section id="about">
+        <h2>О проекте</h2>
+        <p>Здесь вы можете написать описание вашего продукта или услуги.</p>
+    </section>
+
+    <!-- Секция 3: Контакты -->
+    <section id="contact" style="background: #222; color: white;">
+        <h2>Свяжитесь с нами</h2>
+        <p>Email: example@mail.com</p>
+    </section>
+
+    <!-- Скрипт для плавной прокрутки (если браузер старый) -->
+    <script>
+        // В современных браузерах scroll-behavior: smooth в CSS достаточно, 
+        // но этот скрипт добавляет совместимость
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
